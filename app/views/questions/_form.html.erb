@@ -1,0 +1,23 @@
+<div class="m-3">
+
+<%= form_with model: @question do |form| %>
+
+  <div>
+    <%= form.label :Title, required: true, minlength: 2 %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <br>
+  
+  <div>
+    <%= form.label :Body, required: true, minlength: 2  %><br>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>
+
+</div>
