@@ -1,16 +1,22 @@
 <div class='m-3'>
 
+  <div class="mb-4">
     <h1><%= @question.title %></h1>
+  </div>
 
+  <div class="my-2">
     <time datatime="<% @question.formatted_created_at %>">
       <%= @question.formatted_created_at %>
     </time>
+  </div>
 
+  <div class="my-2">
     <p><%= @question.body %></p>
+  </div>
 
     <hr>
 
-    <%= link_to 'Edit', edit_question_path(@question) %> |
-    <%= link_to 'Delete', question_path(@question), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit', edit_question_path(@question), class: "btn btn-primary"  %>
+    <%= link_to 'Delete', question_path(@question), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
 
 </div>

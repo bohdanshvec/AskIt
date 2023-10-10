@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to questions_path
     else
+      # byebug
       render :new
     end
 
@@ -41,7 +42,6 @@ class QuestionsController < ApplicationController
     @question.delete
     redirect_to questions_path
   end
-
 
   private
 

@@ -1,24 +1,26 @@
-<div class='m-3'>
-  <h1>Questions</h1>
+<h1>Questions</h1>
 
-  <%= link_to 'NEW Question', new_question_path %>
-</div>
+<%= link_to 'NEW Question', new_question_path, class: "btn btn-primary"  %>
 <hr>
 
-<div class='m-3'>
   <% @questions.each do |question| %>
+    <article class="card my-2">
+      <div class="card-body">
+        <h2><%= question.title %></h2>
 
-    <h2><%= question.title %></h2>
+        <section class="card-text">
+          <time datatime="<% question.formatted_created_at %>">
+            <%= question.formatted_created_at %>
+          </time>
 
-    <time datatime="<% question.formatted_created_at %>">
-      <%= question.formatted_created_at %>
-    </time>
+          <p class="my-2">
+            <%= question.body %>
+          </p>
+        <section>
 
-    <p><%= question.body %></p>
-
-    <%= link_to 'Edit', edit_question_path(question) %> |
-    <%= link_to 'Show', question_path(question) %> |
-    <%= link_to 'Delete', question_path(question), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-
+        <%= link_to 'Edit', edit_question_path(question), class: "btn btn-primary" %>
+        <%= link_to 'Show', question_path(question), class: "btn btn-secondary" %>
+        <%= link_to 'Delete', question_path(question), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      </div>
+    </article>
   <% end %>
-</div>

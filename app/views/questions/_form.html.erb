@@ -1,23 +1,31 @@
-<div class="m-3">
+<%= @question.errors.full_messages %>
 
-<%= form_with model: @question do |form| %>
+<%= form_with(model: @question, local: true) do |f| %>
 
-  <div>
-    <%= form.label :Title, required: true, minlength: 2 %><br>
-    <%= form.text_field :title %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :Title, required: true, minlength: 2 %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
   </div>
 
   <br>
   
-  <div>
-    <%= form.label :Body, required: true, minlength: 2  %><br>
-    <%= form.text_area :body %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :Body, required: true, minlength: 2  %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= f.submit "Submit question!", class: "btn btn-primary"  %>
   </div>
 
 <% end %>
-
-</div>
