@@ -14,7 +14,8 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to questions_path
     else
-      # byebug
+      @errors = @question.errors.full_messages
+      byebug
       render :new
     end
 
