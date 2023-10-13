@@ -1,3 +1,7 @@
+<% provide :page_title, 'Show question' %>
+
+<% currently_at('Questions') %>
+
 <div class='m-3'>
 
   <div class="mb-4">
@@ -21,43 +25,30 @@
 
   <h2>Write yur arswers</h2>
 
-  <%= render 'shared/errors', object: @answer %>
-
-  <%= form_with model: [@question, @answer] do |f| %>
-
-    <div class="mb-3 row">
-      <div class="col-sm-2 col-form-label">
-        <%= f.label :Body, required: true, minlength: 2 %>
-      </div>
-
-      <div class="col-sm-10">
-        <%= f.text_area :body, class: 'form-control' %>
-      </div>
-    </div>
-
-    <article>
-      <%= f.submit "Submit answer!", class: "btn btn-primary"  %>
-    </div>
-
-  <% end %>
+  <%= render 'answers/form' %>
 
   <h2 class="mt-5">Answers :</h2>
 
 
     <% @answers.each do |answer| %>
-      <article class="mb-4">
 
-      <div>
-        <time datatime="<% answer.formatted_created_at %>">
-        <%= answer.formatted_created_at %>
-        </time>
-      </div>
+      <article class="mb-3 card">
+        <div class="card-body">
+          <section class="card-text">
 
-      <div>
-        <p><%= answer.body %></p>
-      </div>
+            <time datatime="<% answer.formatted_created_at %>">
+              <%= answer.formatted_created_at %>
+            </time>
 
-      <%= link_to 'Delete', question_answer_path(@question, answer), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+            <p>
+              <%= answer.body %>
+            </p>
+          </section>
+
+          <%= link_to 'Edit', edit_question_answer_path(@question, answer), class: "btn btn-primary" %>
+          <%= link_to 'Delete', question_answer_path(@question, answer), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+          
+        </div>
       </article>
 
     <% end %>

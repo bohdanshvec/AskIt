@@ -24,7 +24,8 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = @question.answers.build
-    @answers = Answer.ordered
+    @answers = @question.answers.ordered
+    # @answers = Answer.where(question: @question).limit(2).order(created_at: :desc)
   end
 
   def edit
