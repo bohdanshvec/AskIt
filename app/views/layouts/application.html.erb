@@ -24,6 +24,10 @@
     </header>
 
     <main class="container mt-3">
+      <% flash.each do |key, massage| %>
+        <%= tag.div massage, class: "alert alert-#{key}", role: 'alert' %>
+      <% end %>
+      
       <%= yield %>
     </main>
   </body>

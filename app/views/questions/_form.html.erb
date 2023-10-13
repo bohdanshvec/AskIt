@@ -1,10 +1,10 @@
-<%= @question.errors.full_messages %>
+<%= render 'shared/errors', object: @question %>
 
 <%= form_with(model: @question, local: true) do |f| %>
 
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
-      <%= f.label :Title, required: true, minlength: 2 %>
+      <%= f.label :Title %>
     </div>
 
     <div class="col-sm-10">
@@ -16,7 +16,7 @@
   
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
-      <%= f.label :Body, required: true, minlength: 2  %>
+      <%= f.label :Body, required: true, minlength: 2 %>
     </div>
 
     <div class="col-sm-10">
