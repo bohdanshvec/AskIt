@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  # http_basic_authenticate_with name: "dan", password: "password", except: [:index, :show]# спрашивает пользователя и пароль при обращении к методу
 
   before_action :set_question!, only: %i[show edit update destroy]
 
@@ -43,7 +44,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.delete
     flash[:success] = 'Question deleted!'
-    redirect_to questions_path
+    redirect_to questions_path, status: :see_other
   end
 
   private

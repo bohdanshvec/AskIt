@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  include ActionView::RecordIdentifier
+
   before_action :set_question!
   before_action :set_answer!, except: %i[create]
 
@@ -10,6 +12,7 @@ class AnswersController < ApplicationController
       redirect_to question_path(@question)
     else
       @answers = @question.answers.ordered
+    # @answers = Answer.where(question: @question).limit(2).order(created_at: :desc)
       render 'questions/show', status: :unprocessable_entity
     end
   end
@@ -20,7 +23,7 @@ class AnswersController < ApplicationController
   def update
     if @answer.update(answer_params)
       flash[:success] = 'Answer updated!'
-      redirect_to question_path(@question)
+      redirect_to question_path(@question, anchor: dom_id(@answer))
     else
       render :edit, status: :unprocessable_entity
     end
@@ -29,7 +32,7 @@ class AnswersController < ApplicationController
   def destroy
     @answer.destroy
     flash[:success] = "Answer deleted!"
-    redirect_to question_path(@question)
+    redirect_to question_path(@question), status: :see_other
   end
 
   private

@@ -10,8 +10,9 @@
   <% @questions.each do |question| %>
     <article class="card mb-2">
       <div class="card-body">
-        <h2><%= question.title %></h2>
 
+        <h2><%= link_to question.title, question, class: "text-decoration-none link-opacity-50-hover" %></h2>
+      
         <section class="card-text">
           <time datatime="<% question.formatted_created_at %>">
             <%= question.formatted_created_at %>
