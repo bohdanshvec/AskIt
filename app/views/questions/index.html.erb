@@ -7,6 +7,8 @@
 <%= link_to 'NEW Question', new_question_path, class: "btn btn-primary"  %>
 <hr>
 
+<%== pagy_bootstrap_nav(@pagy) %>
+
   <% @questions.each do |question| %>
     <article class="card mb-2">
       <div class="card-body">
@@ -29,3 +31,5 @@
       </div>
     </article>
   <% end %>
+
+  <%== pagy_bootstrap_nav(@pagy) %>

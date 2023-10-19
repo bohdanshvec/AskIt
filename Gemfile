@@ -9,6 +9,8 @@ gem "bootstrap"
 
 gem "sassc-rails"
 
+gem 'pagy', '~> 6.1' 
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
