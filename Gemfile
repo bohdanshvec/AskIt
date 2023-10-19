@@ -59,6 +59,8 @@ group :development do
 
   gem 'byebug', '~> 11.1', '>= 11.1.3'
 
+  gem 'faker', '~> 3'
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 

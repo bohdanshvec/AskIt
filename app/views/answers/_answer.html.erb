@@ -1,0 +1,18 @@
+      <%= tag.article class: "mb-3 card", id: dom_id(answer) do %>
+        <div class="card-body">
+          <section class="card-text">
+
+            <time datatime="<% answer.formatted_created_at %>">
+              <%= answer.formatted_created_at %>
+            </time>
+
+            <div>
+              <%= sanitize answer.body %>
+            </div>
+          </section>
+
+          <%= link_to 'Edit', edit_question_answer_path(question, answer), class: "btn btn-primary" %>
+          <%= link_to 'Delete', question_answer_path(question, answer), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+          
+        </div>
+      <% end %>
