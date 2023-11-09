@@ -9,7 +9,11 @@ gem "bootstrap"
 
 gem "sassc-rails"
 
-gem 'pagy', '~> 6.1' 
+gem 'pagy', '~> 6.1'
+
+gem 'draper'
+
+gem "valid_email2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
