@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Valid
   extend ActiveSupport::Concern
 
@@ -5,7 +7,7 @@ module Valid
     scope :ordered, -> { order(id: :desc) }
 
     def formatted_created_at
-      created_at.strftime("%Y-%m-%d %H:%M:%S")
+      created_at.strftime('%Y-%m-%d %H:%M:%S')
     end
   end
 end
