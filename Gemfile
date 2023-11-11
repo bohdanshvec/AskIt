@@ -74,6 +74,10 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+
+  gem 'rubocop', '~> 1.57', require: false
+  gem 'rubocop-rails', '~> 2.22', require: false
+  gem 'rubocop-performance', '~> 1.19', require: false
 end
 
 group :test do
