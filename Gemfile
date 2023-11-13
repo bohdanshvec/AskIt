@@ -17,6 +17,12 @@ gem 'draper'
 
 gem 'valid_email2'
 
+gem 'rubyzip', '~> 2.3'
+
+gem 'caxlsx', '~> 4.0'
+gem 'caxlsx_rails', '~> 0.6'
+gem 'rubyXL', '~> 3.4'
+gem 'activerecord-import', '~> 1.5'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -59,6 +65,8 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+
+  gem 'pry-rails'
 end
 
 group :development do
