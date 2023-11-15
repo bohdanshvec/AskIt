@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 class Admin::UsersController < ApplicationController
+
+  include Admin::UsersHelper
+  
   before_action :require_authentication
-  before_action :set_user!, only: %i[destroy]
+  before_action :user_is_admin
+  before_action :set_user!, only: %i[edit update destroy]
 
   def index
     respond_to do |format|
@@ -37,6 +41,19 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    # @user.admin_edit = true # строка делает тоже самое, что и merge в user_params
+    if @user.update(user_params)
+      flash[:success] = 'User updated!'
+      redirect_to admin_users_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @user.delete
     flash[:success] = 'User deleted!'
@@ -64,7 +81,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :role).merge(admin_edit: true)
   end
 
 end

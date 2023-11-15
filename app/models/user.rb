@@ -1,17 +1,21 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  attr_accessor :old_password, :remember_token
+  attr_accessor :old_password, :remember_token, :admin_edit
+
+  enum role: { basic: 0, moderator: 1, admin: 2 }, _suffix: :role
 
   has_secure_password validations: false
 
   validate :password_presence
-  validate :correct_old_password, on: :update, if: -> { password.present? }
+  validate :correct_old_password, on: :update, if: -> { password.present? && !admin_edit }
   validates :password, confirmation: true, allow_blank: true,
                        length: { minimum: 8, maximum: 70 }
 
   validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
   validate :password_complexity
+
+  validates :role, presence: true
 
   scope :ordered, -> { order(id: :desc) }
 

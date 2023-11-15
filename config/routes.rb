@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, only: %i[index new create destroy]
+    resources :users, only: %i[index new create edit update destroy]
   end
 
   root 'pages#index'
