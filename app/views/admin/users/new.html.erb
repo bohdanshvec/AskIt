@@ -1,0 +1,62 @@
+<% provide :page_title, 'Registration User' %>
+
+<% currently_at('Sign Up') %>
+
+<h1 class="bm-4">Registration User</h1>
+
+<%= render 'shared/errors', object: @user %>
+
+<%= form_with(model: @user, url: admin_users_path, local: true) do |f| %>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :Name %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :name, value: 'Name', class: 'form-control form-control-lg' %>
+    </div>
+  </div>
+
+  <br>
+  
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :email %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.email_field :email, placeholder: 'E-mail', 
+        class: 'form-control form-control-lg' %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :Password %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :password, value: 'P@ssw0rd', class: 'form-control form-control-lg' %>
+    </div>
+  </div>
+
+  <br>
+
+    <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :Password_confirmation %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :password_confirmation, value: 'P@ssw0rd', class: 'form-control form-control-lg' %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.submit "Save!", class: "btn btn-primary"  %>
+  </div>
+
+<% end %>

@@ -2,8 +2,10 @@
   <th scope='row'><%= user.id %></th>
   <td><%= user.name %></td>
   <td><%= user.email %></td>
+  <td><%= user.email %></td>
   <td><%= user.created_at %></td>
   <td><%= user.updated_at %></td>
+  <td><%= link_to 'Delete', admin_user_path(user), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
 </tr>
 
 
