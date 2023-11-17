@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  attr_accessor :old_password, :remember_token, :admin_edit
+  attr_accessor :old_password, :remember_token, :admin_edit, :password_admin, :admin_token_digest
 
   enum role: { basic: 0, moderator: 1, admin: 2 }, _suffix: :role
 
@@ -16,6 +16,8 @@ class User < ApplicationRecord
   validate :password_complexity
 
   validates :role, presence: true
+
+  validate :confirmation_password_admin, on: %i[create update], if: -> { user_data_changed? && admin_edit }
 
   scope :ordered, -> { order(id: :desc) }
 
@@ -64,6 +66,16 @@ class User < ApplicationRecord
     errors.add :password,
                'complexity requirement not met. Length should be 8-70 characters and include:
                1 uppercase, 1 lowercase, 1 digit and 1 special character'
+  end
+
+  def confirmation_password_admin
+    return if BCrypt::Password.new(admin_token_digest).is_password?(password_admin)
+
+    errors.add :password_admin, 'is incorrect'
+  end
+
+  def user_data_changed?
+    changed?
   end
 
   def password_presence

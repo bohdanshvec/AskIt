@@ -19,10 +19,10 @@ gem 'valid_email2'
 
 gem 'rubyzip', '~> 2.3'
 
+gem 'activerecord-import', '~> 1.5'
 gem 'caxlsx', '~> 4.0'
 gem 'caxlsx_rails', '~> 0.6'
 gem 'rubyXL', '~> 3.4'
-gem 'activerecord-import', '~> 1.5'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
