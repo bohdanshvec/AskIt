@@ -122,6 +122,10 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     draper (4.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -136,6 +140,14 @@ GEM
     execjs (2.9.1)
     faker (3.2.1)
       i18n (>= 1.8.11, < 2)
+    faraday (2.7.11)
+      base64
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-gzip (2.0.0)
+      faraday (>= 1.0)
+      zlib (~> 3.0)
+    faraday-net_http (3.0.2)
     ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -154,6 +166,13 @@ GEM
       activesupport (>= 5.0.0)
     json (2.6.3)
     language_server-protocol (3.17.0.3)
+    lokalise_manager (5.0.0)
+      ruby-lokalise-api (~> 9.0)
+      rubyzip (~> 2.3)
+      zeitwerk (~> 2.4)
+    lokalise_rails (7.0.0)
+      lokalise_manager (~> 5.0)
+      zeitwerk (~> 2.4)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -273,6 +292,12 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
+    ruby-lokalise-api (9.0.0)
+      addressable (~> 2.5)
+      faraday (~> 2.0)
+      faraday-gzip (~> 2.0)
+      json (~> 2)
+      zeitwerk (~> 2.4)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyXL (3.4.25)
@@ -327,6 +352,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.12)
+    zlib (3.1.0)
 
 PLATFORMS
   x86_64-linux
@@ -341,11 +367,13 @@ DEPENDENCIES
   caxlsx (~> 4.0)
   caxlsx_rails (~> 0.6)
   debug
+  dotenv-rails
   draper
   error_highlight (>= 0.4.0)
   faker (~> 3)
   importmap-rails
   jbuilder
+  lokalise_rails (~> 7)
   pagy (~> 6.1)
   pg (~> 1.1)
   pry-rails

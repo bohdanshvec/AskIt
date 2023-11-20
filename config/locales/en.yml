@@ -62,7 +62,7 @@ en:
 
   sessions:
     new:
-      tittle: Log In
+      title: Log In
     create:
       warning: Incorrect email and/or password
       success: 'Welcome back, '
