@@ -1,7 +1,7 @@
-<% provide :page_title, 'Edit User' %>
+<% provide :page_title, t('.title') %>
 
 <% currently_at("#{current_user.name_or_email}") %>
 
-<h1 class="bm-4">Edit User</h1>
+<h1 class="bm-4"><%= t('.title') %></h1>
 
 <%= render 'form' %>

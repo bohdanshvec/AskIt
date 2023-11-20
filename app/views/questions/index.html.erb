@@ -1,10 +1,10 @@
-<% provide :page_title, 'Questions' %>
+<% provide :page_title, t('menu.questions') %>
 
-<% currently_at('Questions') %>
+<% currently_at(t('menu.questions')) %>
 
-<h1>Questions</h1>
+<h1><%= t('.title') %></h1>
 
-<%= link_to 'NEW Question', new_question_path, class: "btn btn-primary"  %>
+<%= link_to t('global.button.new_question'), new_question_path, class: "btn btn-primary"  %>
 <hr>
 
 <%== pagy_bootstrap_nav(@pagy) %>
@@ -25,9 +25,9 @@
           </div>
         <section>
 
-        <%= link_to 'Edit', edit_question_path(question), class: "btn btn-primary" %>
-        <%= link_to 'Show', question_path(question), class: "btn btn-secondary" %>
-        <%= link_to 'Delete', question_path(question), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <%= link_to t('global.button.edit'), edit_question_path(question), class: "btn btn-primary" %>
+        <%= link_to t('global.button.show'), question_path(question), class: "btn btn-secondary" %>
+        <%= link_to t('global.button.destroy'), question_path(question), data: {turbo_method: :delete, turbo_confirm: t('global.button.confirm') }, class: "btn btn-danger" %>
       </div>
     </article>
   <% end %>

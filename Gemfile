@@ -23,6 +23,12 @@ gem 'activerecord-import', '~> 1.5'
 gem 'caxlsx', '~> 4.0'
 gem 'caxlsx_rails', '~> 0.6'
 gem 'rubyXL', '~> 3.4'
+
+gem 'rails-i18n', '~> 7.0'
+
+gem 'lokalise_rails', '~> 7'
+gem 'dotenv-rails'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 

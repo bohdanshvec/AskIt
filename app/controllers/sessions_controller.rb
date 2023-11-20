@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       do_sign_in(user)
     else
-      flash.now[:warning] = 'Incorrect email and/or password'
+      flash.now[:warning] = t('.warning')
       render :new, status: :unprocessable_entity
     end
   end
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   def destroy
     forget(current_user)
     sing_out
-    flash[:success] = 'See yuo later!'
+    flash[:success] = t('.success')
     redirect_to root_path
   end
 
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
   def do_sign_in(user)
     sign_in(user)
     remember(user) if params[:remember_me] == '1'
-    flash[:success] = "Welcome back, #{user.decorate.name_or_email}"
+    flash[:success] = t('.success') + user.decorate.name_or_email
     redirect_to questions_path
   end
 end

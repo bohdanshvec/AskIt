@@ -29,13 +29,13 @@ module Admin
     def create
       if params[:archive].present?
         UserBulkService.call(params[:archive])
-        flash[:success] = 'User imported!'
+        flash[:success] = t('.success_import')
         redirect_to admin_users_path
       else
         @user = User.new(user_params)
 
         if @user.save
-          flash[:success] = 'User created!'
+          flash[:success] = t('.success')
           redirect_to admin_users_path
         else
           render :new, status: :unprocessable_entity
@@ -47,7 +47,7 @@ module Admin
       # @user.admin_edit = true # строка делает тоже самое, что и merge в user_params
       # @user.admin_token_digest = current_user.password_digest # строка делает тоже самое, что и merge в user_params
       if @user.update(user_params)
-        flash[:success] = 'User updated!'
+        flash[:success] = t('.success')
         redirect_to admin_users_path
       else
         render :edit, status: :unprocessable_entity
@@ -56,7 +56,7 @@ module Admin
 
     def destroy
       @user.delete
-      flash[:success] = 'User deleted!'
+      flash[:success] = t('.success')
       redirect_to admin_users_path, status: :see_other
     end
 

@@ -1,6 +1,6 @@
-<% provide :page_title, 'Show question' %>
+<% provide :page_title, t('.title') %>
 
-<% currently_at('Questions') %>
+<% currently_at(t('menu.questions')) %>
 
 <div class='m-3'>
 
@@ -18,16 +18,16 @@
     <%= sanitize(@question.body) %>
   </div>
 
-  <%= link_to 'Edit', edit_question_path(@question), class: "btn btn-primary"  %>
-  <%= link_to 'Delete', question_path(@question), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+  <%= link_to t('global.button.edit'), edit_question_path(@question), class: "btn btn-primary"  %>
+  <%= link_to t('global.button.destroy'), question_path(@question), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
 
   <hr>
 
-  <h2>Write yur arswers</h2>
+  <h2><%= t('.write_answer') %></h2>
 
   <%= render 'answers/form' %>
 
-  <h2 class="mt-5">Answers :</h2>
+  <h2 class="mt-5"><%= t('.answers') %> :</h2>
 
   <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
 

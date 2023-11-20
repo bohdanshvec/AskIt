@@ -1,31 +1,121 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  en: English
+  ru: Russian
+
+  activerecord:
+    attributes:
+      # answer:
+      #   body: Body
+      question:
+        title: Title
+        body: Body
+      # user: User
+      #   name: Name
+      #   email: Email
+      #   role: Role
+      #   password: Password
+      #   password_confirmation: Password confirmation
+    models:
+      question: Question
+
+  pages:
+    index:
+      title: Welcome to AskIt!
+
+  questions:
+    index:
+      title: Questions
+    new:
+      title: New Question
+    create:
+      success: Question created!
+    edit:
+      title: Edit Question
+    update:
+      success: Question updated!
+    show:
+      title: Question
+      write_answer: Write yur arswers
+      answers: Answers
+    destroy:
+      success: Question deleted!
+
+  answers:
+    create:
+      success: Answer created!
+    edit:
+      title: Edit answer
+    update:
+      success: Answer updated!
+    destroy:
+      success: Answer deleted!
+
+  users:
+    new:
+      title: Registration
+    create:
+      success: 'Welcome to the app, '
+    edit:
+      title: Edit User
+    update:
+      success: Your profile was successfully updated!
+
+  sessions:
+    new:
+      tittle: Log In
+    create:
+      warning: Incorrect email and/or password
+      success: 'Welcome back, '
+    destroy:
+      success: See yuo later!
+
+
+
+  menu:
+    home: Home
+    questions: Questions
+    sign_up: Sign Up
+    log_in: Log In
+    log_out: Log Out
+    edit_profile: Edit profile
+
+  admin:
+    users:
+      index:
+        id: ID
+        name: Name
+        email: Email
+        role: Role
+        created_at: Created at
+        update_at: Update at
+        title: Admin Users
+        button_download: Download zipped XLSX
+        button_upload: Upload!
+        button_new_user: NEW User
+        text: Upload users from XLSX
+        select_archive: Select archive
+      new:
+        title: Registration User
+      create:
+        success_iport: User imported!
+        success: User created!
+      edit:
+        title: Update User
+      update:
+        success: User updated!
+      destroy:
+        success: User deleted!
+
+  global:
+    button:
+      submit: Submit!
+      edit: Edit
+      destroy: Destroy
+      save: Save!
+      new_question: NEW Question
+      show: Show
+      confirm: Are you sure?
+      sign_in: Sign In!
+      register: Register!
+
+      

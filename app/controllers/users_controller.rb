@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      flash[:success] = "Welcome to the app, #{@user.decorate.name_or_email}"
+      flash[:success] = t('.success') + @user.decorate.name_or_email
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = 'Your profile was successfully updated!'
+      flash[:success] = t('.success')
       redirect_to edit_user_path(@user)
     else
       render :edit, status: :unprocessable_entity

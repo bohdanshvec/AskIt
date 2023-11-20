@@ -1,0 +1,121 @@
+ru:
+  en: Английский
+  ru: Русский
+
+  activerecord:
+    attributes:
+      # answer:
+      #   body: Текст
+      question:
+        title: Заголовок
+        body: Текст
+      # user:
+      #   name: Имя
+      #   email: Почта
+      #   role: Роль
+      #   password: Пароль
+      #   password_confirmation: Подтверждение пароля
+    models:
+      question: Вопрос
+  
+  pages:
+    index:
+      title: Добро пожаловать в AskIt!
+  
+  questions:
+    index:
+      title: Вопросы
+    new:
+      title: Новый Вопрос
+    create:
+      success: Вопрос создан!
+    edit:
+      title: Редактировать вопрос
+    update:
+      success: Вопрос отредактирован!
+    show:
+      title: Вопрос
+      write_answer: Напишите ваш ответ
+      answers: Ответы
+    destroy:
+      success: Вопрос удалён!
+
+  answers:
+    create:
+      success: Ответ создан!
+    edit:
+      title: Редактировать ответ
+    update:
+      success: Ответ отредактирован!
+    destroy:
+      success: Ответ удалён!
+
+  users:
+    new:
+      title: Регистрация
+    create:
+      success: 'Добро пожаловать, '
+    edit:
+      title: Редактировать пользователя
+    update:
+      success: Ваш профиль был успешно обновлён!
+
+  sessions:
+    new:
+      title: Авторизироваться
+    create:
+      warning: Не корректная почта и/или пароль
+      success: 'Добропожаловать, '
+    destroy:
+      success: Увидимся позже!
+
+  menu:
+    home: Главная
+    questions: Вопросы
+    sign_up: Зарегистрироваться
+    log_in: Авторизироваться
+    log_out: Выйти
+    edit_profile: Редактировать профиль
+
+  admin:
+    users:
+      index:
+        id: ID
+        name: Имя
+        email: Почта
+        role: Роль
+        created_at: Создан
+        update_at: Отредактирован
+        title: Пользователь Администратор
+        button_download: Выгрузить ZIP-архив XLSX
+        button_upload: Загрузить!
+        button_new_user: Новый пользователь
+        text: Загрузить пользователей из XLSX
+        select_archive: Выбрать архив
+      new:
+        title: Регистрация пользователя
+      create:
+        success_iport: Пользователи импортированы!
+        success: Пользователь создан!
+      edit:
+        title: Обновление пользователя
+      update:
+        success: Пользователь обновлён!
+      destroy:
+        success: Пользователь удалён!
+
+  global:
+    button:
+      submit: Отправить!
+      edit: Редактировать
+      destroy: Удалить
+      save: Сохранить!
+      new_question: НОВЫЙ Вопрос
+      show: Показать
+      confirm: Вы уверены?
+      sign_in: Авторизироваться!
+      register: Зарагистрировать!
+
+
+
+      

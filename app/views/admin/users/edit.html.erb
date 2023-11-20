@@ -1,7 +1,7 @@
-<% provide :page_title, 'Update User' %>
+<% provide :page_title, t('.title') %>
 
-<% currently_at('Update Up') %>
+<% currently_at(t('.title')) %>
 
-<h1 class="bm-4">Update User</h1>
+<h1 class="bm-4"><%= t('.title') %></h1>
 
 <%= render 'form', user: @user %>

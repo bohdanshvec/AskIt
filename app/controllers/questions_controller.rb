@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     if @question.save
-      flash[:success] = 'Question created!'
+      flash[:success] = t('.success')
       redirect_to questions_path
     else
       render :new, status: :unprocessable_entity
@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      flash[:success] = 'Question updated!'
+      flash[:success] = t('.success')
       redirect_to questions_path
     else
       render :edit, status: :unprocessable_entity
@@ -45,7 +45,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.delete
-    flash[:success] = 'Question deleted!'
+    flash[:success] = t('.success')
     redirect_to questions_path, status: :see_other
   end
 

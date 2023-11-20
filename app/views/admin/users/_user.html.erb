@@ -6,8 +6,8 @@
   <td><%= user.created_at %></td>
   <td><%= user.updated_at %></td>
   <td>
-    <%= link_to 'Edit', edit_admin_user_path(user), class: "btn btn-secondary" %>
-    <%= link_to 'Delete', admin_user_path(user), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    <%= link_to t('global.button.edit'), edit_admin_user_path(user), class: "btn btn-secondary" %>
+    <%= link_to t('global.button.destroy'), admin_user_path(user), data: {turbo_method: :delete, turbo_confirm: t('global.button.confirm') }, class: "btn btn-danger" %>
   </td>
 </tr>
 

@@ -1,8 +1,8 @@
-<% provide :page_title, 'Log In' %>
+<% provide :page_title, t('.title') %>
 
-<% currently_at('Log In') %>
+<% currently_at(t('.title')) %>
 
-<h1 class="bm-4">Log In</h1>
+<h1 class="bm-4"><%= t('.title') %></h1>
 
 <%= form_with url: session_path do |f| %>
 
@@ -38,7 +38,7 @@
   </div>
 
   <div>
-    <%= f.submit "Sign In!", class: "btn btn-primary"  %>
+    <%= f.submit t('global.button.sign_in'), class: "btn btn-primary"  %>
   </div>
 
 <% end %>

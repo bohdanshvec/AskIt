@@ -1,7 +1,7 @@
-<% provide :page_title, 'Registration' %>
+<% provide :page_title, t('.title') %>
 
-<% currently_at('Sign Up') %>
+<% currently_at(t('menu.sign_up')) %>
 
-<h1 class="bm-4">Registration</h1>
+<h1 class="bm-4"><%= t('.title') %></h1>
 
 <%= render 'form' %>

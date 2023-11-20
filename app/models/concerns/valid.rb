@@ -7,7 +7,7 @@ module Valid
     scope :ordered, -> { order(id: :desc) }
 
     def formatted_created_at
-      created_at.strftime('%Y-%m-%d %H:%M:%S')
+      I18n.l(created_at, format: :long)
     end
   end
 end
