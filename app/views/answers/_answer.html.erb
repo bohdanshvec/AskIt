@@ -1,18 +1,27 @@
       <%= tag.article class: "mb-3 card", id: dom_id(answer) do %>
-        <div class="card-body">
-          <section class="card-text">
+        <div class="row g-0 ms-2">
+          <div class="col-sm-auto text-sm-center align-self-center">
+            <%= answer.user.gravatar size: 50, css_class: 'd-block' %>
+            <%= answer.user.name_or_email %>
+          </div>
+          <div class="col-sm">
+        
+            <div class="card-body">
+              <section class="card-text">
 
-            <time datatime="<% answer.formatted_created_at %>">
-              <%= answer.formatted_created_at %>
-            </time>
+                <time datatime="<% answer.formatted_created_at %>">
+                  <%= answer.formatted_created_at %>
+                </time>
 
-            <div>
-              <%= sanitize answer.body %>
+                <div>
+                  <%= sanitize answer.body %>
+                </div>
+              </section>
+
+              <%= link_to t('global.button.edit'), edit_question_answer_path(question, answer), class: "btn btn-primary" %>
+              <%= link_to t('global.button.destroy'), question_answer_path(question, answer), data: {turbo_method: :delete, turbo_confirm: t('global.button.confirm') }, class: "btn btn-danger"  %>
             </div>
-          </section>
 
-          <%= link_to t('global.button.edit'), edit_question_answer_path(question, answer), class: "btn btn-primary" %>
-          <%= link_to t('global.button.destroy'), question_answer_path(question, answer), data: {turbo_method: :delete, turbo_confirm: t('global.button.confirm') }, class: "btn btn-danger"  %>
-          
+          </div>
         </div>
       <% end %>

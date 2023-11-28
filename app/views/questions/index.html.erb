@@ -9,31 +9,6 @@
 
 <%== pagy_bootstrap_nav(@pagy) %>
 
-  <% @questions.each do |question| %>
-    <article class="card mb-2">
-      <section class='card-header'>
-        <%= question.user.name_or_rmail %>
-      </section>
-      
-      <div class="card-body">
+  <%= render @questions %>
 
-        <h2><%= link_to question.title, question, class: "text-decoration-none link-opacity-50-hover" %></h2>
-      
-        <section class="card-text">
-          <time datatime="<% question.formatted_created_at %>">
-            <%= question.formatted_created_at %>
-          </time>
-
-          <div class="my-2">
-            <%= truncate strip_tags(question.body), length: 150, omission: '... (continued)' %>
-          </div>
-        <section>
-
-        <%= link_to t('global.button.edit'), edit_question_path(question), class: "btn btn-primary" %>
-        <%= link_to t('global.button.show'), question_path(question), class: "btn btn-secondary" %>
-        <%= link_to t('global.button.destroy'), question_path(question), data: {turbo_method: :delete, turbo_confirm: t('global.button.confirm') }, class: "btn btn-danger" %>
-      </div>
-    </article>
-  <% end %>
-
-  <%== pagy_bootstrap_nav(@pagy) %>
+<%== pagy_bootstrap_nav(@pagy) %>

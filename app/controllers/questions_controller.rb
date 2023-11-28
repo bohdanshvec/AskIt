@@ -8,11 +8,14 @@ class QuestionsController < ApplicationController
 
   def index
     @pagy, @questions = pagy(Question.ordered)
+    @questions = @questions.decorate
   end
 
   def show
+    @question = @question.decorate
     @answer = @question.answers.build
     @pagy, @answers = pagy(@question.answers.ordered)
+    @answers = @answers.decorate
     # @answers = @question.answers.ordered
     # @answers = Answer.where(question: @question).limit(2).order(created_at: :desc)
   end
@@ -24,7 +27,7 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.build(question_params)
 
     if @question.save
       flash[:success] = t('.success')
@@ -35,7 +38,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if @question.update(question_params)
+    if @question.update(question_update_params)
       flash[:success] = t('.success')
       redirect_to questions_path
     else

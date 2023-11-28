@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
   validate :confirmation_password_admin, on: %i[create update], if: -> { user_data_changed? && admin_edit }
 
+  before_save :set_gravatar_hash, if: :email_changed?
+
   scope :ordered, -> { order(id: :desc) }
 
   def remember_me
@@ -45,6 +47,13 @@ class User < ApplicationRecord
   end
 
   private
+
+  def set_gravatar_hash
+    return unless email.present?
+
+    hash = Digest::MD5.hexdigest email.strip.downcase
+    self.gravatar_hash = hash
+  end
 
   def digest(string)
     cost = if ActiveModel::SecurePassword
