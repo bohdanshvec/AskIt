@@ -7,4 +7,5 @@ class ApplicationDecorator < Draper::Decorator
   #   def percent_amount
   #     h.number_to_percentage object.amount, precision: 2
   #   end
+  decorates_association :user
 end
