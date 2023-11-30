@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AnswerDecorator < Draper::Decorator
+class CommentDecorator < Draper::Decorator
   delegate_all
   decorates_association :user
 

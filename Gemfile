@@ -26,8 +26,8 @@ gem 'rubyXL', '~> 3.4'
 
 gem 'rails-i18n', '~> 7.0'
 
-gem 'lokalise_rails', '~> 7'
 gem 'dotenv-rails'
+gem 'lokalise_rails', '~> 7'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -91,6 +91,7 @@ group :development do
 
   gem 'error_highlight', '>= 0.4.0', platforms: [:ruby]
 
+  gem 'bullet'
   gem 'rubocop', '~> 1.57', require: false
   gem 'rubocop-performance', '~> 1.19', require: false
   gem 'rubocop-rails', '~> 2.22', require: false

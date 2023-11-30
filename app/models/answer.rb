@@ -2,6 +2,7 @@
 
 class Answer < ApplicationRecord
   include Valid
+  include Commentable
 
   belongs_to :question
   belongs_to :user

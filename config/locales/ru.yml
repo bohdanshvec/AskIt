@@ -1,22 +1,26 @@
 ru:
-  en: Английский
-  ru: Русский
 
   activerecord:
     attributes:
-      # answer:
-      #   body: Текст
+      comment:
+        body: Текст
+      answer:
+        body: Текст
       question:
         title: Заголовок
         body: Текст
-      # user:
-      #   name: Имя
-      #   email: Почта
-      #   role: Роль
-      #   password: Пароль
-      #   password_confirmation: Подтверждение пароля
+      user:
+        role: Роль
+        email: Почта
+        name: Имя
+        old_password: Старый пароль
+        password: Пароль
+        password_confirmation: Подтверждение пароля
     models:
       question: Вопрос
+
+  en: Английский
+  ru: Русский
   
   pages:
     index:
@@ -34,11 +38,18 @@ ru:
     update:
       success: Вопрос отредактирован!
     show:
+      comments: Коментарии
       title: Вопрос
       write_answer: Напишите ваш ответ
       answers: Ответы
     destroy:
       success: Вопрос удалён!
+
+  comments:
+    create:
+      success: Коментарий создан!
+    destroy:
+      success: Коментарий удалён!
 
   answers:
     create:

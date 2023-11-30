@@ -2,6 +2,7 @@
 
 class AnswersController < ApplicationController
   include ActionView::RecordIdentifier
+  include QuestionsAnswers
 
   before_action :set_question!
   before_action :set_answer!, except: %i[create]
@@ -15,11 +16,7 @@ class AnswersController < ApplicationController
       flash[:success] = t('.success')
       redirect_to question_path(@question)
     else
-      @question = @question.decorate
-      @pagy, @answers = pagy(@question.answers.ordered)
-      # @answers = Answer.where(question: @question).limit(2).order(created_at: :desc)
-      @answers = @answers.decorate
-      render 'questions/show', status: :unprocessable_entity
+      load_question_answers(do_render: true)
     end
   end
 

@@ -4,7 +4,8 @@
 
 <h1><%= t('.title') %></h1>
 
-<%= link_to t('global.button.new_question'), new_question_path, class: "btn btn-primary"  %>
+<%= link_to t('global.button.new_question'), new_question_path, class: "btn btn-primary" if current_user.present? %>
+
 <hr>
 
 <%== pagy_bootstrap_nav(@pagy) %>

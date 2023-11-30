@@ -3,20 +3,18 @@
 class QuestionsController < ApplicationController
   # http_basic_authenticate_with name: "dan", password: "password", except: [:index, :show]
   # спрашивает пользователя и пароль при обращении к методу
+  include QuestionsAnswers
 
   before_action :set_question!, only: %i[show edit update destroy]
 
   def index
-    @pagy, @questions = pagy(Question.ordered)
+    @pagy, @questions = pagy(Question.includes(:user).ordered)
     @questions = @questions.decorate
   end
 
   def show
-    @question = @question.decorate
-    @answer = @question.answers.build
-    @pagy, @answers = pagy(@question.answers.ordered)
-    @answers = @answers.decorate
-    # @answers = @question.answers.ordered
+    load_question_answers(do_render: true)
+  
     # @answers = Answer.where(question: @question).limit(2).order(created_at: :desc)
   end
 

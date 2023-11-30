@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuestionDecorator < Draper::Decorator
   delegate_all
   decorates_association :user
@@ -10,5 +12,4 @@ class QuestionDecorator < Draper::Decorator
   #       object.created_at.strftime("%a %m/%d/%y")
   #     end
   #   end
-
 end

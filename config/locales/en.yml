@@ -1,23 +1,27 @@
 en:
-  en: English
-  ru: Russian
 
   activerecord:
     attributes:
-      # answer:
-      #   body: Body
+      comment:
+        body: Body
+      answer:
+        body: Body
       question:
         title: Title
         body: Body
-      # user: User
-      #   name: Name
-      #   email: Email
-      #   role: Role
-      #   password: Password
-      #   password_confirmation: Password confirmation
+      user:
+        role: Role
+        email: Email
+        name: Name
+        old_password: Old password
+        password: Password
+        password_confirmation: Password confirmation
     models:
       question: Question
 
+  en: English
+  ru: Russian
+  
   pages:
     index:
       title: Welcome to AskIt!
@@ -34,12 +38,19 @@ en:
     update:
       success: Question updated!
     show:
+      comments: Comments
       title: Question
       write_answer: Write yur arswers
       answers: Answers
     destroy:
       success: Question deleted!
 
+  comments:
+    create:
+      success: Comment created!
+    destroy:
+      success: Comment deleted!
+  
   answers:
     create:
       success: Answer created!
