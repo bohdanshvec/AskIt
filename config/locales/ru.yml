@@ -9,6 +9,7 @@ ru:
       question:
         title: Заголовок
         body: Текст
+        tags: Теги
       user:
         role: Роль
         email: Почта
@@ -29,6 +30,7 @@ ru:
   questions:
     index:
       title: Вопросы
+      search_by_tags: Поиск по тегам
     new:
       title: Новый Вопрос
     create:

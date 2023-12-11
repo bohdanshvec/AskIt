@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   include QuestionsAnswers
 
   before_action :set_question!, only: %i[show edit update destroy]
-  before_action :fetch_tags, only: %i[new edit]
+  before_action :fetch_tags, only: %i[index new create edit]
 
   def index
     @pagy, @questions = pagy(Question.all_by_tags(params[:tag_ids]))
@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if @question.update(question_update_params)
+    if @question.update(question_params)
       flash[:success] = t('.success')
       redirect_to questions_path
     else

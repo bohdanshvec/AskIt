@@ -9,6 +9,7 @@ en:
       question:
         title: Title
         body: Body
+        tags: Tags
       user:
         role: Role
         email: Email
@@ -29,6 +30,7 @@ en:
   questions:
     index:
       title: Questions
+      search_by_tags: Search by tags
     new:
       title: New Question
     create:
