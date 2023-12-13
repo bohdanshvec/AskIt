@@ -26,6 +26,14 @@ class User < ApplicationRecord
 
   scope :ordered, -> { order(id: :desc) }
 
+  def guest?
+    false
+  end
+
+  def author?(obj)
+    obj.user == self
+  end
+
   def remember_me
     self.remember_token = SecureRandom.urlsafe_base64
     # rubocop:disable Rails/SkipsModelValidations

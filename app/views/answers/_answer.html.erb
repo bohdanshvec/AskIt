@@ -18,8 +18,13 @@
           </div>
         </section>
 
-        <%= link_to t('global.button.edit'), edit_question_answer_path(question, answer), class: "btn btn-primary" %>
-        <%= link_to t('global.button.destroy'), question_answer_path(question, answer), data: {turbo_method: :delete, turbo_confirm: t('global.button.confirm') }, class: "btn btn-danger"  %>
+        <% if policy(answer).edit? %>
+          <%= link_to t('global.button.edit'), edit_question_answer_path(question, answer), class: "btn btn-primary" %>
+        <% end %>
+        
+        <% if policy(answer).destroy? %>
+          <%= link_to t('global.button.destroy'), question_answer_path(question, answer), data: {turbo_method: :delete, turbo_confirm: t('global.button.confirm') }, class: "btn btn-danger"  %>
+        <% end %>
       </div>
 
     </div>

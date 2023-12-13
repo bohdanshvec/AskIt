@@ -17,6 +17,7 @@ en:
         old_password: Old password
         password: Password
         password_confirmation: Password confirmation
+        password_admin: Password admin
     models:
       question: Question
 
@@ -85,6 +86,7 @@ en:
 
 
   menu:
+    users: Users
     home: Home
     questions: Questions
     sign_up: Sign Up
@@ -120,6 +122,13 @@ en:
         success: User deleted!
 
   global:
+    flash:
+      not_authorized: You are not authorized to perform this action!
+    user:
+      roles:
+        basic: Basic
+        moderator: Moderator
+        admin: Admin
     button:
       submit: Submit!
       edit: Edit

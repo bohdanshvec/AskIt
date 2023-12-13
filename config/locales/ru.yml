@@ -17,6 +17,7 @@ ru:
         old_password: Старый пароль
         password: Пароль
         password_confirmation: Подтверждение пароля
+        password_admin: Пароль адмнистратора
     models:
       question: Вопрос
 
@@ -83,6 +84,7 @@ ru:
       success: Увидимся позже!
 
   menu:
+    users: Пользователи
     home: Главная
     questions: Вопросы
     sign_up: Зарегистрироваться
@@ -118,6 +120,13 @@ ru:
         success: Пользователь удалён!
 
   global:
+    flash:
+      not_authorized: У вас нет прав на выполнение этого действия!
+    user:
+      roles:
+        basic: Базовая
+        moderator: Модератор
+        admin: Админ
     button:
       submit: Отправить!
       edit: Редактировать

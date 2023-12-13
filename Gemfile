@@ -29,6 +29,8 @@ gem 'rails-i18n', '~> 7.0'
 gem 'dotenv-rails'
 gem 'lokalise_rails', '~> 7'
 
+gem 'pundit', '~> 2.3', '>= 2.3.1'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 

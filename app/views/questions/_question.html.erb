@@ -22,8 +22,14 @@
       </div>
     <section>
 
-    <%= link_to t('global.button.edit'), edit_question_path(question), class: "btn btn-primary" if current_user.present? %>
+    <% if policy(question).edit? %>
+      <%= link_to t('global.button.edit'), edit_question_path(question), class: "btn btn-primary" %>
+    <% end %>
+
     <%= link_to t('global.button.show'), question_path(question), class: "btn btn-secondary" %>
-    <%= link_to t('global.button.destroy'), question_path(question), data: {turbo_method: :delete, turbo_confirm: t('global.button.confirm') }, class: "btn btn-danger" %>
+
+    <% if policy(question).edit? %>
+      <%= link_to t('global.button.destroy'), question_path(question), data: {turbo_method: :delete, turbo_confirm: t('global.button.confirm') }, class: "btn btn-danger" %>
+    <% end %>
   </div>
 </article>

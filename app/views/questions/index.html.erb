@@ -18,7 +18,9 @@
   <% end %>
 </section>
 
-<%= link_to t('global.button.new_question'), new_question_path, class: "btn btn-primary" if current_user.present? %>
+<% if policy(:question).new? %>
+  <%= link_to t('global.button.new_question'), new_question_path, class: "btn btn-primary" %>
+<% end %>
 
 <hr>
 
