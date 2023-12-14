@@ -28,6 +28,22 @@ en:
     index:
       title: Welcome to AskIt!
 
+  password_resets:
+    fail: Could not reset your password...
+    edit:
+      title: Enter new password
+      form:
+        submit: Reset my password!
+    update:
+      success: Your password was reset!
+    create:
+      success: Password reset instructions were sent to your email address.
+    new:
+      title: Reset password
+      form:
+        email: Email
+        submit: Send reset instructions
+        back: Back to sign in
   questions:
     index:
       title: Questions
@@ -77,6 +93,8 @@ en:
   sessions:
     new:
       title: Log In
+      form:
+        forgot_password: I forgot my password
     create:
       warning: Incorrect email and/or password
       success: 'Welcome back, '
@@ -121,6 +139,10 @@ en:
       destroy:
         success: User deleted!
 
+  password_reset_mailer:
+    reset_email:
+      subject: 'Password reset | AskIt'
+
   global:
     flash:
       not_authorized: You are not authorized to perform this action!
@@ -137,7 +159,7 @@ en:
       new_question: NEW Question
       show: Show
       confirm: Are you sure?
-      sign_in: Sign In!
+      sing_in: Sing In!
       register: Register!
 
       

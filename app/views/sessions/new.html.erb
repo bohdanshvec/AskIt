@@ -20,7 +20,7 @@
 
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
-      <%= f.label :Password %>
+      <%= f.label :password %>
     </div>
 
     <div class="col-sm-10">
@@ -38,7 +38,8 @@
   </div>
 
   <div>
-    <%= f.submit t('global.button.sign_in'), class: "btn btn-primary"  %>
+    <%= f.submit t('global.button.sing_in'), class: "btn btn-primary"  %>
+    <%= link_to t('.form.forgot_password'), new_password_reset_path, class: 'btn btn-secondary' %>
   </div>
 
 <% end %>

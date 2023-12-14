@@ -27,7 +27,22 @@ ru:
   pages:
     index:
       title: Добро пожаловать в AskIt!
-  
+  password_resets:
+    fail: Не удалось сбросить ваш пароль...
+    edit:
+      title: Выберите новый пароль
+      form:
+        submit: Сбросить пароль!
+    update:
+      success: Ваш пароль был сброшен!
+    create:
+      success: Инструкции были отправлены на ваш адрес.
+    new:
+      title: Сбросить пароль
+      form:
+        email: Почта
+        submit: Отправить инструкции для сброса пароля
+        back: Назад ко входу в систему
   questions:
     index:
       title: Вопросы
@@ -77,6 +92,8 @@ ru:
   sessions:
     new:
       title: Авторизироваться
+      form:
+        forgot_password: Я забыл пароль
     create:
       warning: Не корректная почта и/или пароль
       success: 'Добропожаловать, '
@@ -119,6 +136,10 @@ ru:
       destroy:
         success: Пользователь удалён!
 
+  password_reset_mailer:
+    reset_email:
+      subject: Сброс пароля | AskIt
+
   global:
     flash:
       not_authorized: У вас нет прав на выполнение этого действия!
@@ -135,7 +156,7 @@ ru:
       new_question: НОВЫЙ Вопрос
       show: Показать
       confirm: Вы уверены?
-      sign_in: Авторизироваться!
+      sing_in: Авторизироваться!
       register: Зарагистрировать!
 
 
