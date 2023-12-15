@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   include Recoverable
 
-  attr_accessor :old_password, :remember_token, :admin_edit, :password_admin, :admin_token_digest
+  attr_accessor :old_password, :remember_token, :admin_edit, :password_admin, :admin_token_digest, :admin_controller
 
   enum role: { basic: 0, moderator: 1, admin: 2 }, _suffix: :role
 
@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   validates :role, presence: true
 
-  # validate :confirmation_password_admin, on: %i[create update], if: -> { user_data_changed? && admin_edit }
+  validate :confirmation_password_admin, on: %i[create update], if: -> { user_data_changed? && admin_edit && admin_controller }
 
   before_save :set_gravatar_hash, if: :email_changed?
 

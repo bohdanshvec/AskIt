@@ -30,7 +30,7 @@
     </div>
 
     <div class='col-sm-10'>
-      <%= f.collection_select :tag_ids, tags, :id, :title, { prompt: 'Select tags' }, { multiple: true, class: 'js-multiple-select' } %>
+      <%= f.collection_select :tag_ids, tags.nil? ? [] : tags, :id, :title, { prompt: 'Select tags' }, { multiple: true, class: 'js-multiple-select' } %>
     </div>
   </div>
 
