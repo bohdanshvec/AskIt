@@ -12,7 +12,7 @@ class PasswordResetsController < ApplicationController
     end
 
     flash[:success] = t('.success')
-    redirect_to new_session_path, status: :unprocessable_entity
+    redirect_to new_session_path
   end
 
   def edit

@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    binding.pry
+    # binding.pry
     if @question.update(question_params)
       flash[:success] = t('.success')
       redirect_to questions_path

@@ -113,6 +113,13 @@ en:
     edit_profile: Edit profile
 
   admin:
+    user_mailer:
+      bulk_import_done:
+        subject: User import done | AskIt
+      bulk_import_fail:
+        subject: User import failed | AskIt
+      bulk_export_done:
+        subject: User export done | AskIt
     users:
       index:
         id: ID
@@ -127,6 +134,7 @@ en:
         button_new_user: NEW User
         text: Upload users from XLSX
         select_archive: Select archive
+        success: You'll get an email once this operation is done
       new:
         title: Registration User
       create:
@@ -161,5 +169,6 @@ en:
       confirm: Are you sure?
       sing_in: Sing In!
       register: Register!
-
+    dialog:
+      you_sure: Are you sure?
       

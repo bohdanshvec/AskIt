@@ -110,6 +110,13 @@ ru:
     edit_profile: Редактировать профиль
 
   admin:
+    user_mailer:
+      bulk_import_done:
+        subject: Импорт пользователей завершён | AskIt
+      bulk_import_fail:
+        subject: Импорт пользователей не удался | AskIt
+      bulk_export_done:
+        subject: Экспорт пользователей завершён | AskIt
     users:
       index:
         id: ID
@@ -124,6 +131,7 @@ ru:
         button_new_user: Новый пользователь
         text: Загрузить пользователей из XLSX
         select_archive: Выбрать архив
+        success: Вы получите электронное письмо, как только эта операция будет завершена
       new:
         title: Регистрация пользователя
       create:
@@ -158,6 +166,8 @@ ru:
       confirm: Вы уверены?
       sing_in: Авторизироваться!
       register: Зарагистрировать!
+    dialog:
+      you_sure: Вы уверены?
 
 
 
