@@ -11,15 +11,38 @@
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
 
     <script>
-      document.addEventListener('turbo:load', function() {
-        var settings = {
-          plugins: {
-            'remove_button': {},
-            'no_backspace_delete': {}
-          }
-        };
-        var collection_select = new TomSelect('.js-multiple-select', settings);
-      });
+    // код до урока 23, 15 минута
+      // document.addEventListener('turbo:load', function() {
+      //   var settings = {
+      //     plugins: {
+      //       'remove_button': {},
+      //       'no_backspace_delete': {}
+      //     }
+      //   };
+      //   var collection_select = new TomSelect('.js-multiple-select', settings);
+      // });
+
+      let selects = []
+
+      document.addEventListener("turbo:before-cache", function() {
+        selects.forEach((select) => {
+          select.destroy()
+        })
+      })
+
+      const rerender = function() {
+            var settings = {
+                plugins: {
+                  'remove_button': {},
+                  'no_backspace_delete': {}
+                }
+              };
+              var collection_select = new TomSelect('.js-multiple-select', settings);
+            };
+
+      document.addEventListener("turbo:load", rerender)
+      document.addEventListener("turbo:frame-render", rerender)
+      document.addEventListener("turbo:render", rerender)
     </script>
 
 
@@ -32,9 +55,9 @@
     <%= yield(:main_menu) %>
 
     <main class="container mt-3">
-      <% flash.each do |key, massage| %>
-        <%= tag.div massage, class: "alert alert-#{key}", role: 'alert' %>
-      <% end %>
+      <div id='flash'>
+        <%= render 'shared/flash' %>
+      </div>
       
       <%= yield %>
     </main>

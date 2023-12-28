@@ -3,6 +3,10 @@
 module ApplicationHelper
   include Pagy::Frontend
 
+  # def prepend_flash
+  #   turbo_stream.prepend 'flash', partial: 'shared/flash'
+  # end
+
   def nav_tab(title, url, options = {})
     current_page = options.delete :current_page
 

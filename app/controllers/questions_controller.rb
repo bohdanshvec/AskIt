@@ -12,7 +12,8 @@ class QuestionsController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @pagy, @questions = pagy(Question.all_by_tags(params[:tag_ids]))
+    @tags = Tag.where(id: params[:tag_ids]) if params[:tag_ids]
+    @pagy, @questions = pagy Question.all_by_tags(@tags), link_extra: 'data-turbo-frame="pagination_pagy"'
     @questions = @questions.decorate
   end
 
@@ -32,8 +33,17 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
 
     if @question.save
-      flash[:success] = t('.success')
-      redirect_to questions_path
+      respond_to do |format|
+        format.html do
+          flash[:success] = t('.success')
+          redirect_to questions_path
+        end
+
+        format.turbo_stream do
+          @question = @question.decorate
+          flash.now[:success] = t('.success')
+        end
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,8 +52,17 @@ class QuestionsController < ApplicationController
   def update
     # binding.pry
     if @question.update(question_params)
-      flash[:success] = t('.success')
-      redirect_to questions_path
+      respond_to do |format|
+        format.html do
+          flash[:success] = t('.success')
+          redirect_to questions_path
+        end
+
+        format.turbo_stream do
+          @question = @question.decorate
+          flash.now[:success] = t('.success')
+        end
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -51,8 +70,14 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.delete
-    flash[:success] = t('.success')
-    redirect_to questions_path, status: :see_other
+    respond_to do |format|
+      format.html do
+        flash[:success] = t('.success')
+        redirect_to questions_path, status: :see_other
+      end
+
+      format.turbo_stream { flash[:success] = t('.success') }
+    end
   end
 
   private
