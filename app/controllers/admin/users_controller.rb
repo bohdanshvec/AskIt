@@ -94,7 +94,8 @@ module Admin
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :role, :password_admin).merge(
-        admin_edit: true, admin_token_digest: current_user.password_digest, admin_controller: true)
+        admin_edit: true, admin_token_digest: current_user.password_digest, admin_controller: true
+      )
     end
 
     def authorize_user!

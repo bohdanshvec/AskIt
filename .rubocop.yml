@@ -12,3 +12,9 @@ Style/Documentation:
 Rails/I18nLocaleTexts:
   Enabled: false
 
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 25
+  

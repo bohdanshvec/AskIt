@@ -12,7 +12,6 @@ end
 
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
-  
 
   concern :commentable do
     resources :comments, only: %i[create destroy]
@@ -22,7 +21,7 @@ Rails.application.routes.draw do
     resource :session, only: %i[new create destroy] # маршруты в единственном числе и мы не ожидаем идентификаторов (id)
 
     resource :password_reset, only: %i[new create edit update]
-    
+
     resources :users, only: %i[new create edit update]
 
     resources :questions, concerns: :commentable do

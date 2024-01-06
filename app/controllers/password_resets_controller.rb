@@ -1,7 +1,10 @@
-class PasswordResetsController < ApplicationController
+# frozen_string_literal: true
 
+class PasswordResetsController < ApplicationController
   before_action :require_no_authentication
   before_action :set_user, only: %i[edit update]
+
+  def edit; end
 
   def create
     @user = User.find_by(email: params[:email])
@@ -13,9 +16,6 @@ class PasswordResetsController < ApplicationController
 
     flash[:success] = t('.success')
     redirect_to new_session_path
-  end
-
-  def edit
   end
 
   def update
@@ -38,5 +38,4 @@ class PasswordResetsController < ApplicationController
     # binding.pry
     redirect_to(new_session_path, flash: { warning: t('.fail') }) unless @user&.password_reset_period_valid?
   end
-
 end

@@ -22,7 +22,9 @@ class User < ApplicationRecord
 
   validates :role, presence: true
 
-  validate :confirmation_password_admin, on: %i[create update], if: -> { user_data_changed? && admin_edit && admin_controller }
+  validate :confirmation_password_admin, on: %i[create update], if: lambda {
+                                                                      user_data_changed? && admin_edit && admin_controller
+                                                                    }
 
   before_save :set_gravatar_hash, if: :email_changed?
 

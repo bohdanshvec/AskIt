@@ -1,0 +1,2 @@
+<%= turbo_stream.append dom_id(@comment.commentable, 'comments_list'), render(@comment) %>
+<%= turbo_stream.prepend 'flash', partial: 'shared/flash' %>

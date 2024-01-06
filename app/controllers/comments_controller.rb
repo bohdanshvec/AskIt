@@ -10,22 +10,35 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.includes(:user).build(comment_params)
     authorize(@comment)
+    @comment = @comment.decorate
 
     if @comment.save
-      flash[:success] = t('.success')
-      redirect_to question_path(@question)
+      respond_to do |format|
+        format.html do
+          flash[:success] = t '.success'
+          redirect_to question_path(@question)
+        end
+
+        format.turbo_stream { flash.now[:success] = t('.success') }
+      end
     else
-      @comment = @comment.decorate
-      load_question_answers(do_render: true)
+      load_question_answers do_render: true
     end
   end
 
   def destroy
-    comment = @commentable.comments.includes(:user).find(params[:id])
-    authorize(comment)
-    comment.destroy
-    flash[:success] = t('.success')
-    redirect_to question_path(@question)
+    @comment = @commentable.comments.includes(:user).find(params[:id])
+    authorize(@comment)
+
+    @comment.destroy
+    respond_to do |format|
+      format.html do
+        flash[:success] = t '.success'
+        redirect_to question_path(@question), status: :see_other
+      end
+
+      format.turbo_stream { flash.now[:success] = t('.success') }
+    end
   end
 
   private

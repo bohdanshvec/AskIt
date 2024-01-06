@@ -6,7 +6,7 @@ class UserBulkExportJob < ApplicationJob
   def perform(initiator)
     stream = UserBulkExportService.call
 
-    Admin::UserMailer.with(user: initiator, stream: stream)
+    Admin::UserMailer.with(user: initiator, stream:)
                      .bulk_export_done.deliver_now
   end
 end

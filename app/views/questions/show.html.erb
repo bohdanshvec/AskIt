@@ -5,8 +5,7 @@
 <%= render @question %>
 
   <div class='mt-2'>
-    <%= render 'comments/commentable', commentable: @question, comment: @comment, 
-      html_id: 'questionComments' %>
+    <%= render 'comments/commentable', commentable: @question, comment: @comment %>
   </div>
 
   <hr>
@@ -21,10 +20,8 @@
 
   <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
 
+  <%= turbo_frame_tag 'answers' do %>
     <%= render partial: 'answers/answer', collection: @answers, as: :answer, locals: {question: @question} %>
+  <% end %>
 
   <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
-
-</div>
-
-
